@@ -6,7 +6,7 @@
 #    By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 16:35:09 by nbuchhol          #+#    #+#              #
-#    Updated: 2024/12/17 15:03:20 by nbuchhol         ###   ########.fr        #
+#    Updated: 2025/02/06 18:14:14 by nbuchhol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ LINCLUDES = -L ${DIR_LIBFT} -lft
 
 # Paths
 
-SRC = ${SRCDIR}/push_swap.c
+SRC = $(wildcard ${SRCDIR}/*.c)
 OBJDIR = ./objs
 OBJ = ${patsubst ${SRCDIR}/%.c, ${OBJDIR}/%.o, ${SRC}}
 

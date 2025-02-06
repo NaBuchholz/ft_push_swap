@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 09:34:05 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/02/06 16:00:54 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/02/06 17:53:01 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 # define PUSHSWAP_H
 
 # include <unistd.h>
+# include "../libft/libft.h"
 # include <stdio.h>
+# include <limits.h>
 
-typedef struct s_list
-{
-	s_list	*prev;
-	s_list	*next;
-	int		value;
-}	t_list;
+int		validate(char **argv, t_list *inputList);
+long	ft_atol(char *number);
 
 #endif
