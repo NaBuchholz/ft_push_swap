@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushSwap.h                                         :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/16 09:34:05 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/02/06 16:00:54 by nbuchhol         ###   ########.fr       */
+/*   Created: 2024/12/18 15:26:58 by nbuchhol          #+#    #+#             */
+/*   Updated: 2024/12/18 15:27:11 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdio.h>
-
-typedef struct s_list
+t_list	*ft_lstlast(t_list *lst)
 {
-	s_list	*prev;
-	s_list	*next;
-	int		value;
-}	t_list;
-
-#endif
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}

@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:41:34 by nbuchhol          #+#    #+#             */
-/*   Updated: 2024/12/17 14:54:56 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/02/06 15:51:40 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char *argv[])
 {
-	if (argc != 1 && argv)
+	if (argc > 2 && argv)
 	{
 		return (1);
 	}
