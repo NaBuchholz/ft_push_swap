@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 14:32:15 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/10 20:01:31 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/10 20:25:24 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,20 @@ static int	find_min_position(t_stack *stack)
 	return (pos);
 }
 
+static void	move_min_to_top(t_stack *stack_a, int pos)
+{
+	if (pos <= stack_a->size / 2)
+	{
+		while (pos-- > 0)
+			rotate(stack_a, NULL, "ra");
+	}
+	else
+	{
+		while (pos++ < stack_a->size)
+			rotate_re(stack_a, NULL, "rra");
+	}
+}
+
 static void	sort_five(t_stack *stack_a, t_stack *stack_b)
 {
 	int	pos;
@@ -69,16 +83,7 @@ static void	sort_five(t_stack *stack_a, t_stack *stack_b)
 	while (count < 2)
 	{
 		pos = find_min_position(stack_a);
-		if (pos <= stack_a->size / 2)
-		{
-			while (pos-- > 0)
-				rotate(stack_a, NULL, "ra");
-		}
-		else
-		{
-			while (pos++ < stack_a->size)
-				rotate_re(stack_a, NULL, "rra");
-		}
+		move_min_to_top(stack_a, pos);
 		push(stack_a, stack_b, "pb");
 		count++;
 	}

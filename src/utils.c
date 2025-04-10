@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:01:45 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/10 14:53:18 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/10 20:27:12 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ long	ft_atol(char *number)
 	temp = 0;
 	while (*number >= '0' && *number <= '9' && *number)
 	{
-		temp = (temp * 10) + (*number - '0' );
+		temp = (temp * 10) + (*number - '0');
 		number++;
 	}
 	return (temp * sign);
