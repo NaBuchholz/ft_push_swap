@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 01:54:07 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/10 01:57:19 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/10 12:46:44 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ static void	rrr(t_stack *st_a, t_stack *st_b, int print)
 
 void	rotate_re(t_stack *st_a, t_stack *st_b, char *op)
 {
-	if (st_a && ft_strncmp(op, "rra", 3) == 0)
+	if (st_a && ft_strncmp(op, "rra", 4) == 0)
 		rra(st_a, 1);
-	else if (st_b && ft_strncmp(op, "rrb", 3) == 0)
+	else if (st_b && ft_strncmp(op, "rrb", 4) == 0)
 		rrb(st_b, 1);
-	else if ((st_a && st_b) && ft_strncmp(op, "rrr", 3) == 0)
+	else if ((st_a && st_b) && ft_strncmp(op, "rrr", 4) == 0)
 		rrr(st_a, st_b, 1);
 }
