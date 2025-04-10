@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 09:34:05 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/10 14:18:36 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/10 14:26:50 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct s_stack
 	int	capacity;
 }	t_stack;
 
-int		validate(int ac, char **av, t_stack *stack);
 long	ft_atol(char *number);
 void	free_split(char **split);
 int		parse_args(int argc, char **argv, t_stack *stack_a);
@@ -35,5 +34,6 @@ void	rotate(t_stack *st_a, t_stack *st_b, char *op);
 void	rotate_re(t_stack *st_a, t_stack *st_b, char *op);
 void	free_stack(t_stack *stack);
 int		is_sorted(t_stack *stack);
+int		has_duplicate(t_stack *stack, int num);
 
 #endif

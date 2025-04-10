@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 14:18:11 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/10 14:19:20 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/10 14:26:26 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,3 +60,4 @@ int	parse_args(int argc, char **argv, t_stack *stack_a)
 	}
 	return (1);
 }
+
