@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:01:45 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/10 00:24:33 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/10 01:19:09 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static void	sa(t_stack *stack_a, int print)
 
 	if (stack_a->size < 2)
 		return ;
-	temp = stack_a->values[0];
-	stack_a->values[0] = stack_a->values[1];
-	stack_a->values[1] = temp;
+	temp = stack_a->val[0];
+	stack_a->val[0] = stack_a->val[1];
+	stack_a->val[1] = temp;
 	if (print == 1)
 		ft_printf("sa\n");
 }
@@ -31,9 +31,9 @@ static void	sb(t_stack *stack_b, int print)
 
 	if (stack_b->size < 2)
 		return ;
-	temp = stack_b->values[0];
-	stack_b->values[0] = stack_b->values[1];
-	stack_b->values[1] = temp;
+	temp = stack_b->val[0];
+	stack_b->val[0] = stack_b->val[1];
+	stack_b->val[1] = temp;
 	if (print == 1)
 		ft_printf("sb\n");
 }
