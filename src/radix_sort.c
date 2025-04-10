@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 04:09:58 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/10 12:50:53 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/10 14:34:26 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,32 @@ static void	normalize_stack(t_stack *stack)
 		stack->val[i] = ranks[i];
 	free(copy);
 	free(ranks);
+}
+
+void	radix_sort(t_stack *stack_a, t_stack *stack_b)
+{
+	int	i;
+	int	j;
+	int	size;
+	int	max_bit;
+
+	normalize_stack(stack_a);
+	max_bit = max_bits(stack_a);
+	size = stack_a->size;
+	i = 0;
+	while (i < max_bit)
+	{
+		j = 0;
+		while (j < size)
+		{
+			if (((stack_a->val[0] >> i) & 1) == 1)
+				rotate(stack_a, stack_b, "ra");
+			else
+				push(stack_a, stack_b, "pb");
+			j++;
+		}
+		while (stack_b->size != 0)
+			push(stack_a, stack_b, "pa");
+		i++;
+	}
 }
