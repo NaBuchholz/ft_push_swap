@@ -5,61 +5,76 @@
 #                                                     +:+ +:+         +:+      #
 #    By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/11/12 16:35:09 by nbuchhol          #+#    #+#              #
-#    Updated: 2025/02/06 18:14:14 by nbuchhol         ###   ########.fr        #
+#    Created: 2025/04/10 15:00:00 by nbuchhol          #+#    #+#              #
+#    Updated: 2025/04/10 16:12:12 by nbuchhol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-
-# Compilation definitions
-
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-# Directories definitions
+LIBFT_DIR = libft
+LIBFT = $(LIBFT_DIR)/libft.a
+PRINTF_DIR = $(LIBFT_DIR)/printf
 
-INCLUDES = -Iincludes
-SRCDIR = ./src
+SRC_DIR = src
+OBJ_DIR = obj
+INCLUDES_DIR = includes
 
-# Libft
+SRC_FILES = push_swap.c \
+		parse_args.c \
+		push_operations.c \
+		swap_operations.c \
+		rotate_operations.c \
+		rotate_reverse_operations.c \
+		radix_sort.c \
+		validation.c \
+		sort_stack.c \
+		utils.c
 
-DIR_LIBFT = libft
-NAME_LIBFT = libft/libft.a
-LINCLUDES = -L ${DIR_LIBFT} -lft
+SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
 
-# Paths
+DEPS = $(OBJS:.o=.d)
+INC = -I$(INCLUDES_DIR) -I$(LIBFT_DIR)
 
-SRC = $(wildcard ${SRCDIR}/*.c)
-OBJDIR = ./objs
-OBJ = ${patsubst ${SRCDIR}/%.c, ${OBJDIR}/%.o, ${SRC}}
+DEPFLAGS = -MMD -MP
 
-# Extra definitions
+all: $(LIBFT) $(NAME)
 
-RM = rm -rf
+$(NAME): $(OBJ_DIR) $(LIBFT) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF_DIR)/libftprintf.a -o $(NAME)
 
-all: ${NAME}
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
-${NAME_LIBFT}:
-	@${MAKE} -C ${DIR_LIBFT}
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(CFLAGS) $(DEPFLAGS) $(INC) -c $< -o $@
 
-$(NAME): $(NAME_LIBFT) $(OBJDIR) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(NAME_LIBFT) -o $(NAME) $(INCLUDES) $(LINCLUDES)
-	@echo "| push_swap executable was generated successfully!! |"
-
-${OBJDIR}:
-	@mkdir -p ${OBJDIR}
-
-${OBJDIR}/%.o: ${SRCDIR}/%.c
-	@${CC} ${CFLAGS} ${INCLUDES} -c $< -o $@
+$(LIBFT):
+	@if [ ! -d "$(LIBFT_DIR)" ] || [ ! -f "$(LIBFT_DIR)/.git" ]; then \
+		echo "Initializing libft submodule..."; \
+		git submodule update --init --recursive $(LIBFT_DIR); \
+	else \
+		echo "Updating libft submodule..."; \
+		BRANCH=$$(git config -f .gitmodules --get submodule.$(LIBFT_DIR).branch || echo "main"); \
+		(cd $(LIBFT_DIR) && git checkout $$BRANCH && git pull origin $$BRANCH); \
+	fi
+	@make -C $(LIBFT_DIR)
 
 clean:
-	${RM} ${OBJDIR}
+	rm -rf $(OBJ_DIR)
+	@make -C $(LIBFT_DIR) clean
+	@make -C $(PRINTF_DIR) clean
 
 fclean: clean
-	${RM} ${NAME}
-	$(MAKE) -C $(DIR_LIBFT) fclean
+	rm -f $(NAME)
+	@make -C $(LIBFT_DIR) fclean
+	@make -C $(PRINTF_DIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re libft
+-include $(DEPS)
+
+.PHONY: all clean fclean re bonus
