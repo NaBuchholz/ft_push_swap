@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:25:08 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/10 14:31:11 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/10 20:01:55 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	is_sorted(t_stack *stack)
 {
 	int	i;
 
-	if (!stack || stack->size <= 1)
+	if (stack->size <= 1)
 		return (1);
 	i = 0;
 	while (i < stack->size - 1)
