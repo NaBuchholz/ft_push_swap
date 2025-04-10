@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 04:09:58 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/10 04:34:47 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/10 12:50:53 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,33 +35,39 @@ static int	max_bits(t_stack *stack)
 	return (bits);
 }
 
-static int	get_rank(t_stack *stack, int value, int pos)
+
+static void	normalize_stack(t_stack *stack)
 {
-	int	rank;
+	int	*copy;
+	int	*ranks;
 	int	i;
+	int	j;
 
-	rank = 0;
-	i = 0;
-	while (i < stack->size)
+	copy = (int *)malloc(sizeof(int) * stack->size);
+	ranks = (int *)malloc(sizeof(int) * stack->size);
+	if (!copy || !ranks)
 	{
-		if (stack->val[i] < value)
-			rank++;
-		i++;
+		if (copy)
+			free(copy);
+		if (ranks)
+			free(ranks);
+		return ;
 	}
-	i = 0;
-	while (i < pos)
+	i = -1;
+	while (++i < stack->size)
+		copy[i] = stack->val[i];
+	i = -1;
+	while (++i < stack->size)
 	{
-		if (stack->val[i] == value)
-			rank++;
-		i++;
+		j = -1;
+		ranks[i] = 0;
+		while (++j < stack->size)
+			if (copy[j] < copy[i] || (copy[j] == copy[i] && j < i))
+				ranks[i]++;
 	}
-	return (rank);
-}
-
-static int	*init_normalized_array(int size)
-{
-	int	*normalized;
-
-	normalized = (int *)malloc(sizeof(int) * size);
-	return (normalized);
+	i = -1;
+	while (++i < stack->size)
+		stack->val[i] = ranks[i];
+	free(copy);
+	free(ranks);
 }
