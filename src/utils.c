@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:01:45 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/10 14:27:14 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/10 14:53:18 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,18 @@ long	ft_atol(char *number)
 
 void	free_stack(t_stack *stack)
 {
-	if (stack)
-	{
-		if (stack->val)
-			free(stack->val);
-		free(stack);
-	}
+	if (stack->val)
+		free(stack->val);
+	free(stack);
+}
+
+void	exit_error(t_stack *stack_a, t_stack *stack_b)
+{
+	if (stack_a)
+		free_stack(stack_a);
+	if (stack_b)
+		free_stack(stack_b);
+	ft_printf("Error\n");
 	exit(1);
 }
 
