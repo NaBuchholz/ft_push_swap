@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 04:09:58 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/10 04:10:57 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/10 04:34:47 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,35 @@ static int	max_bits(t_stack *stack)
 		bits++;
 	}
 	return (bits);
+}
+
+static int	get_rank(t_stack *stack, int value, int pos)
+{
+	int	rank;
+	int	i;
+
+	rank = 0;
+	i = 0;
+	while (i < stack->size)
+	{
+		if (stack->val[i] < value)
+			rank++;
+		i++;
+	}
+	i = 0;
+	while (i < pos)
+	{
+		if (stack->val[i] == value)
+			rank++;
+		i++;
+	}
+	return (rank);
+}
+
+static int	*init_normalized_array(int size)
+{
+	int	*normalized;
+
+	normalized = (int *)malloc(sizeof(int) * size);
+	return (normalized);
 }
