@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:25:08 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/10 14:26:36 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/10 14:31:11 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	is_sorted(t_stack *stack)
 	}
 	return (1);
 }
+
 int	has_duplicate(t_stack *stack, int num)
 {
 	int	i;
