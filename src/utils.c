@@ -6,18 +6,11 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:01:45 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/02/06 18:27:51 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/10 04:05:45 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushSwap.h"
-
-// void	put_in_list(t_list	list, int value)
-// {
-// 	if (list->value != NULL)
-// 		ft_lstadd_back();
-
-// }
 
 long	ft_atol(char *number)
 {
@@ -41,4 +34,14 @@ long	ft_atol(char *number)
 		number++;
 	}
 	return (temp * sign);
+}
+
+void	free_stack(t_stack *stack)
+{
+	if (stack)
+	{
+		if (stack->val)
+			free(stack->val);
+		free(stack);
+	}
 }
