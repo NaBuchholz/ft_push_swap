@@ -12,24 +12,19 @@
 
 #include "../includes/pushSwap.h"
 
-static void	ra(t_stack *st_a, int print)
+static void ra(t_stack *st_a, int print)
 {
-	int	temp;
-	int	i;
+    int temp;
 
-	if (st_a->size < 2)
-		return ;
-	temp = st_a->val[0];
-	i = 0;
-	while (i < st_a->size - 1)
-	{
-		st_a->val[i] = st_a->val[i + 1];
-		i++;
-	}
-	st_a->val[st_a->size - 1] = temp;
-	if (print == 1)
-		ft_printf("ra\n");
+    if (st_a->size < 2)
+        return ;
+    temp = st_a->val[0];
+    ft_memmove(st_a->val, st_a->val + 1, sizeof(int) * (st_a->size - 1));
+    st_a->val[st_a->size - 1] = temp;
+    if (print == 1)
+        ft_printf("ra\n");
 }
+
 
 static void	rb(t_stack *st_b, int print)
 {
