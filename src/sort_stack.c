@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 14:32:15 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/10 20:25:24 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/13 20:16:17 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ void	sort_stacks(t_stack *stack_a, t_stack *stack_b)
 		sort_three(stack_a);
 	else if (stack_a->size <= 5)
 		sort_five(stack_a, stack_b);
+	else if (stack_a->size <= 100)
+		sort_hundred(stack_a, stack_b);
 	else
 		radix_sort(stack_a, stack_b);
 }
