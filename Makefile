@@ -6,7 +6,7 @@
 #    By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/10 15:00:00 by nbuchhol          #+#    #+#              #
-#    Updated: 2025/04/10 16:12:12 by nbuchhol         ###   ########.fr        #
+#    Updated: 2025/04/13 20:24:30 by nbuchhol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRC_FILES = push_swap.c \
 		rotate_operations.c \
 		rotate_reverse_operations.c \
 		radix_sort.c \
+		sort_hundred.c \
 		validation.c \
 		sort_stack.c \
 		utils.c
@@ -44,13 +45,14 @@ DEPFLAGS = -MMD -MP
 all: $(LIBFT) $(NAME)
 
 $(NAME): $(OBJ_DIR) $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF_DIR)/libftprintf.a -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF_DIR)/libftprintf.a -o $(NAME)
+	@echo "| Push Swap Was Generated Successfully!! |"
 
 $(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) $(DEPFLAGS) $(INC) -c $< -o $@
+	@$(CC) $(CFLAGS) $(DEPFLAGS) $(INC) -c $< -o $@
 
 $(LIBFT):
 	@if [ ! -d "$(LIBFT_DIR)" ] || [ ! -f "$(LIBFT_DIR)/.git" ]; then \
