@@ -6,12 +6,11 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:25:08 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/10 20:01:55 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:29:34 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushSwap.h"
-
 
 int	is_valid_number(char *str)
 {

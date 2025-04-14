@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 20:08:13 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/13 20:15:13 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:31:05 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,23 +76,20 @@ static void	push_max_to_a(t_stack *stack_a, t_stack *stack_b)
 
 void	sort_hundred(t_stack *stack_a, t_stack *stack_b)
 {
-	int chunk_size;
-	int i;
-	int chunk_count;
+	int	chunk_size;
+	int	i;
+	int	chunk_count;
 
 	chunk_count = 5;
 	chunk_size = stack_a->size / chunk_count;
-
 	i = 0;
 	while (i < chunk_count)
 	{
 		push_chunk_to_b(stack_a, stack_b, i * chunk_size, (i + 1) * chunk_size);
 		i++;
 	}
-
 	while (stack_a->size > 0)
 		push(stack_a, stack_b, "pb");
-
 	while (stack_b->size > 0)
 		push_max_to_a(stack_a, stack_b);
 }

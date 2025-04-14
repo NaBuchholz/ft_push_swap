@@ -6,25 +6,24 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:01:45 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/10 01:53:31 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:32:10 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushSwap.h"
 
-static void ra(t_stack *st_a, int print)
+static void	ra(t_stack *st_a, int print)
 {
-    int temp;
+	int	temp;
 
-    if (st_a->size < 2)
-        return ;
-    temp = st_a->val[0];
-    ft_memmove(st_a->val, st_a->val + 1, sizeof(int) * (st_a->size - 1));
-    st_a->val[st_a->size - 1] = temp;
-    if (print == 1)
-        ft_printf("ra\n");
+	if (st_a->size < 2)
+		return ;
+	temp = st_a->val[0];
+	ft_memmove(st_a->val, st_a->val + 1, sizeof(int) * (st_a->size - 1));
+	st_a->val[st_a->size - 1] = temp;
+	if (print == 1)
+		ft_printf("ra\n");
 }
-
 
 static void	rb(t_stack *st_b, int print)
 {

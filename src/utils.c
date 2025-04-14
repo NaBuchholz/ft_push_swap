@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:01:45 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/10 20:27:12 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:25:05 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	exit_error(t_stack *stack_a, t_stack *stack_b)
 		free_stack(stack_a);
 	if (stack_b)
 		free_stack(stack_b);
-	ft_printf("Error\n");
+	ft_putendl_fd("Error", 2);
 	exit(1);
 }
 
