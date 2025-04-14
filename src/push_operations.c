@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:01:45 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/10 01:34:55 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/14 16:14:07 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	pa(t_stack *st_a, t_stack *st_b, int print)
 		return ;
 	ft_memmove(st_a->val + 1, st_a->val, sizeof(int) * st_a->size);
 	st_a->val[0] = st_b->val[0];
-	ft_memmove(st_b->val, st_b->val + 1, sizeof(int) * st_b->size - 1);
+	ft_memmove(st_b->val, st_b->val + 1, sizeof(int) * (st_b->size - 1));
 	st_a->size++;
 	st_b->size--;
 	if (print == 1)
