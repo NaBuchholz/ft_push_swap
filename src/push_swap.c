@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:41:34 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/14 17:25:14 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:35:56 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	main(int argc, char *argv[])
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	if (argc < 2)
+	if (argc < 2 || !*argv[1])
 	{
 		ft_putendl_fd("Error", 2);
 		return (1);
