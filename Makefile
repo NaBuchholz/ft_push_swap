@@ -6,13 +6,13 @@
 #    By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/10 15:00:00 by nbuchhol          #+#    #+#              #
-#    Updated: 2025/04/13 20:24:30 by nbuchhol         ###   ########.fr        #
+#    Updated: 2025/04/13 21:05:54 by nbuchhol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
