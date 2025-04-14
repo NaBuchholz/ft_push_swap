@@ -6,13 +6,13 @@
 #    By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/10 15:00:00 by nbuchhol          #+#    #+#              #
-#    Updated: 2025/04/13 21:05:54 by nbuchhol         ###   ########.fr        #
+#    Updated: 2025/04/14 16:09:01 by nbuchhol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -41,6 +41,7 @@ DEPS = $(OBJS:.o=.d)
 INC = -I$(INCLUDES_DIR) -I$(LIBFT_DIR)
 
 DEPFLAGS = -MMD -MP
+ARGS ?= 4 67 3 87 23
 
 all: $(LIBFT) $(NAME)
 
@@ -76,6 +77,15 @@ fclean: clean
 	@make -C $(PRINTF_DIR) fclean
 
 re: fclean all
+
+debug: CFLAGS += -g3
+debug: re
+	@echo "| Running Valgrind Memory Check |"
+	@valgrind --leak-check=full \
+		--show-leak-kinds=all \
+		--track-origins=yes \
+		--verbose \
+		./$(NAME) $(ARGS)
 
 -include $(DEPS)
 
