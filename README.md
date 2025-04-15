@@ -1,6 +1,3 @@
-Aqui está o README.md revisado em português para o seu projeto push_swap:
-
-```md
 <p align="left"><h1 align="left">push_swap</h1></p>
 <p align="left">
 	<img src="https://img.shields.io/github/license/nabuchholz/ft_push_swap?style=default&logo=opensourceinitiative&logoColor=white&color=0b96a2" alt="license">
@@ -143,6 +140,3 @@ Este projeto está em conformidade com a Norma da 42, que inclui:
 ## 🙌 Agradecimentos
 
 - Colegas da 42 por discussões e insights sobre otimização de algoritmos, em especial [Fernando](https://github.com/fernandoruanb) pelos incontáveis testes, [Luis](https://github.com/luizpanigassi) pelo apoio moral ao pragmatísmo.
-
----
-```
