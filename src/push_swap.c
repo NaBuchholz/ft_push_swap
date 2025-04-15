@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:41:34 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/15 10:25:36 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/15 12:11:52 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	main(int argc, char *argv[])
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	if (argc < 2 || !*argv[1])
+	if (argc < 2)
 		return (1);
 	stack_a = initialize_stack(argc - 1);
 	stack_b = initialize_stack(argc - 1);
