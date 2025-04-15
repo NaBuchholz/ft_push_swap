@@ -140,3 +140,9 @@ Este projeto está em conformidade com a Norma da 42, que inclui:
 ## 🙌 Agradecimentos
 
 - Colegas da 42 por discussões e insights sobre otimização de algoritmos, em especial [Fernando](https://github.com/fernandoruanb) pelos incontáveis testes, [Luis](https://github.com/luizpanigassi) pelo apoio moral ao pragmatísmo.
+
+---
+
+<p align="center">
+  Feito com 💜 por nyx
+</p>
