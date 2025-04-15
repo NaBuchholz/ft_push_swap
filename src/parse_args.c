@@ -6,7 +6,7 @@
 /*   By: nbuchhol <nbuchhol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 14:18:11 by nbuchhol          #+#    #+#             */
-/*   Updated: 2025/04/14 17:28:47 by nbuchhol         ###   ########.fr       */
+/*   Updated: 2025/04/15 11:31:32 by nbuchhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,17 @@ static int	process_number(t_stack *stack_a, char *str)
 static int	process_split(t_stack *stack_a, char **split)
 {
 	int	j;
+	int	count;
 
+	count = 0;
+	j = 0;
+	while (split[j])
+	{
+		count++;
+		j++;
+	}
+	if (stack_a->size + count > stack_a->capacity)
+		return (0);
 	j = 0;
 	while (split[j])
 	{
@@ -47,6 +57,8 @@ int	parse_args(int argc, char **argv, t_stack *stack_a)
 	i = 1;
 	while (i < argc)
 	{
+		if (ft_strlen(argv[i]) == 0 || argv[i][0] == '\0')
+			return (0);
 		split = ft_split(argv[i], ' ');
 		if (!split)
 			return (0);
